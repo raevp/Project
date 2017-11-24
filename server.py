@@ -7,7 +7,7 @@ print('# Socket created')
 # Create socket on port
 try:
   s.bind((host, port)) # used to associate the socket with the server address.
-except select.error: #catch for error.
+except s.error: #catch for error.
   print("falied")
   sys.exit()
 if True:
@@ -25,6 +25,7 @@ try:
     data = data.decode("UTF-8") # decode data
     print("User>>>" + data )
     if not data:
+      print("No connection")
       break
     print ("Sending data to User")
     conn.send(data.encode("UTF-8")) # encode data and send to client
